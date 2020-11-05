@@ -34,7 +34,7 @@ steps:
     artifactFeeds: 'MariLyn/dsg-mlops-dev'
 
 - script: |
-    echo "Installing dsgdatascience"
+    echo "Installing dsgdatascience!"
     python -m pip install dsgdatascience==0.1.2
   displayName: 'install dsgdatascience'
 
