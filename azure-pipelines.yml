@@ -29,7 +29,9 @@ steps:
 - task: PipAuthenticate@0
   displayName: Authenticate with artifact feed
   inputs:
-    artifactFeeds: 'dsg-ml-dev'
+    # Provide list of feed names to authenticate
+    # Task creates PIP_INDEX_URL and PIP_EXTRA_INDEX_URL
+    artifactFeeds: 'MariLyn/dsg-mlops-dev'
 
 - script: |
     echo "Installing dsgdatascience"
