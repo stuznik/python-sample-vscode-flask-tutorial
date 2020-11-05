@@ -31,12 +31,12 @@ def test_will_fail():
 
 def test_bq_table_to_df():
   data = {"date_id": [20200104.], "date_key": [20200104.]}
-    expected = pd.DataFrame(data)
-    
-    result = bq.bq_table_to_df(table="d-ml-8576245384.datascience_utils.gcs_to_bq_test")
-    result = result.iloc[[4]].reset_index(drop=True)
+  expected = pd.DataFrame(data)
+  
+  result = bq.bq_table_to_df(table="d-ml-8576245384.datascience_utils.gcs_to_bq_test")
+  result = result.iloc[[4]].reset_index(drop=True)
 
-    if pd.testing.assert_frame_equal(left=expected, right=result, check_dtype=False):
-        pass
-    else:
-      raise Execption("you fail")
+  if pd.testing.assert_frame_equal(left=expected, right=result, check_dtype=False):
+      pass
+  else:
+    raise Execption("you fail")
