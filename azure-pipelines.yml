@@ -19,31 +19,29 @@ strategy:
     Python37:
       python.version: '3.7'
 
-jobs:
-- job: 'Test'
 
-  steps:
-  - task: UsePythonVersion@0
-    inputs:
-      versionSpec: '$(python.version)'
-    displayName: 'Use Python $(python.version)'
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '$(python.version)'
+  displayName: 'Use Python $(python.version)'
 
-  - task: PipAuthenticate@0
-    displayName: Authenticate with artifact feed
-    inputs:
-      artifactFeeds: 'dsg-ml-dev'
+- task: PipAuthenticate@0
+  displayName: Authenticate with artifact feed
+  inputs:
+    artifactFeeds: 'dsg-ml-dev'
 
-  - script: |
-      echo "Installing dsgdatascience"
-      python -m pip install dsgdatascience==0.1.2
-    displayName: 'install dsgdatascience'
+- script: |
+    echo "Installing dsgdatascience"
+    python -m pip install dsgdatascience==0.1.2
+  displayName: 'install dsgdatascience'
 
-  - script: |
-      python -m pip install --upgrade pip
-      pip install -r requirements.txt
-    displayName: 'Install dependencies'
+- script: |
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
+  displayName: 'Install dependencies'
 
-  - script: |
-      pip install pytest pytest-azurepipelines
-      pytest
-    displayName: 'pytest'
+- script: |
+    pip install pytest pytest-azurepipelines
+    pytest
+  displayName: 'pytest'
