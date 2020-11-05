@@ -7,6 +7,6 @@ def test_import_dsgdatascience():
   print(ds.__version__)
   assert True
 
-def test_will fail():
+def test_will_fail():
   print("This will fail")
   raise Exception("oops")
