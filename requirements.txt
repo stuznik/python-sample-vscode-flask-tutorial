@@ -1,2 +1,7 @@
 Flask
-numpy
+numpy>=1.16.0
+gcsfs
+google-cloud-bigquery[pandas, bqstorage]
+google-cloud-firestore
+google-cloud-storage
+pandas>=0.23.4
